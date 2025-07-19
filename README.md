@@ -19,7 +19,7 @@ If you want to check them locally( Server ) like what jobs are created and stuff
 Then use the following command
 
 ```bash
-ls /var/lib/jenkins_home
+ls /var/lib/jenkins_home   # Directory where jenkins files are going to save in the os
 ls /var/lib/jenkins_home/jobs  # to see how many jobs we have 
 ls /var/lib/jenkins_home/workspace # to see the git checouts
 ```
