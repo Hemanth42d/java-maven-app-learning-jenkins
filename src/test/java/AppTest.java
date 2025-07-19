@@ -1,8 +1,8 @@
-package test.java;
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
 
 import com.example.Application;
-import org.junit.Test;
-import static org.junit.Assert.*;
 
 public class AppTest {
 

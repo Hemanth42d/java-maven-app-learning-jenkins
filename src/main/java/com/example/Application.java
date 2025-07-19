@@ -1,10 +1,11 @@
-package main.java.com.example;
+package com.example;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import javax.annotation.PostConstruct;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import javax.annotation.PostConstruct;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class Application {
@@ -20,8 +21,9 @@ public class Application {
         Logger log = LoggerFactory.getLogger(Application.class);
         log.info("Java app started");
     }
-    
+
     public String getStatus() {
         return "OK";
     }
 }
+
