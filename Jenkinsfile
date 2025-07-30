@@ -13,7 +13,7 @@ pipeline{
             }
         }
 
-        stage ("Build"){
+        stage ("Build Image"){
             steps{
                 script{
                     gv.buildApp()
@@ -32,7 +32,7 @@ pipeline{
                 }
             }
         }
-        stage ("Deploy"){
+        stage ("Push Image"){
             steps{
                 script{
                     gv.deployApp()
