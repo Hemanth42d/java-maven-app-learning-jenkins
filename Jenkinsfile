@@ -1,17 +1,19 @@
-CODE_CHANGES = getGitChanges()
+def gv
 
 pipeline{
     agent any
 
     stages{
-        stage ("Build"){
-            when{
-                expression{
-                    CODE_CHANGES == true
-                }
-            }
+
+        stage ("init"){
             steps{
-                echo "Building the application"
+                gv = load "script.groovy"
+            }
+        }
+
+        stage ("Build"){
+            steps{
+                gv.buildApp()
             }
         }
         stage ("Test"){
@@ -21,12 +23,12 @@ pipeline{
                 }
             }
             steps{
-                echo "Testing the application"
+                gv.testApp()
             }
         }
         stage ("Deploy"){
             steps{
-                echo "Deploying the application"
+                gv.deployApp()
             }
         }
     }
