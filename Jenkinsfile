@@ -7,13 +7,17 @@ pipeline{
 
         stage ("init"){
             steps{
-                gv = load "script.groovy"
+                script{
+                    gv = load "script.groovy"
+                }
             }
         }
 
         stage ("Build"){
             steps{
-                gv.buildApp()
+                script{
+                    gv.buildApp()
+                }
             }
         }
         stage ("Test"){
@@ -23,12 +27,16 @@ pipeline{
                 }
             }
             steps{
-                gv.testApp()
+                script{
+                    gv.testApp()
+                }
             }
         }
         stage ("Deploy"){
             steps{
-                gv.deployApp()
+                script{
+                    gv.deployApp()
+                }
             }
         }
     }
