@@ -1,4 +1,4 @@
-# Creating a simple freestyle job in jenkins
+# Creating a simple freestyle job in jenkins (Also for running a pipeline) 
 
 Basically cretaing a free style job in jenkins is done using UI mostly and once the job is created then we will enter into the job and look for **configure** tab in the side bar and then 
 1. Add Github url for cloning the repository locally and add the github credentials in the jenkins credentials tab
