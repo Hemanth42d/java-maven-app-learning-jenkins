@@ -4,7 +4,7 @@ pipeline{
     agent any
 
     tools{
-        maven
+        maven "my-maven-3.9"
     }
 
     stages{
