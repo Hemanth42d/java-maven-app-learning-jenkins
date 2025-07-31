@@ -1,21 +1,20 @@
-def buildApp(){
-
+def buildApp() {
     withCredentials([
-        usernamePassword(CredentialsId: "docker-hub-credentials", usernameVariable:"USER", passwordVariable: "PWD")
-    ]){
+        usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'USER', passwordVariable: 'PWD')
+    ]) {
         echo "Building the application...."
         sh "docker build -t hemanth42/java-maven-app:jma-1.0 ."
-        sh "echo $PWD | docker login -u $USER --password-stdin"
+        sh "echo \$PWD | docker login -u \$USER --password-stdin"
         sh "docker push hemanth42/java-maven-app:jma-1.0"
         echo "Docker image pushed successfully!"
     }
 }
 
-def testApp(){
+def testApp() {
     echo "Testing the application...."
 }
 
-def deployApp(){
+def deployApp() {
     echo "Deploying the application...."
 }
 
