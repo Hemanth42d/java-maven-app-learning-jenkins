@@ -1,6 +1,6 @@
 def buildApp() {
     withCredentials([
-        usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'USER', passwordVariable: 'PASS')
+        usernamePassword(credentialsId: 'docker_hub_credentials', usernameVariable: 'USER', passwordVariable: 'PASS')
     ]) {
         echo "Building the application...."
         sh "mvn clean package"
