@@ -16,27 +16,34 @@ pipeline{
                 }
             }
         }
+        stage ("Test"){
+            steps{
+                script{
+                    gv.testApp()
+                    echo "Testing the application in $BRANCH_NAME"
+                }
+            }
+        }
 
         stage ("Build Image"){
+            when{
+                expression{
+                    BRANCH_NAME == "main"
+                }
+            }
             steps{
                 script{
                     gv.buildApp()
                 }
             }
         }
-        stage ("Test"){
+        
+        stage ("Push Image"){
             when{
                 expression{
-                    env.BRANCH_NAME == 'dev' || env.BRANCH_NAME == 'main'
+                    BRANCH_NAME == "main"
                 }
             }
-            steps{
-                script{
-                    gv.testApp()
-                }
-            }
-        }
-        stage ("Push Image"){
             steps{
                 script{
                     gv.deployApp()
